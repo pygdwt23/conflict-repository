@@ -1,37 +1,52 @@
-## Welcome to GitHub Pages
+# Conflict di Repository
 
-You can use the [editor on GitHub](https://github.com/pygdwt23/conflict-repository/edit/main/README.md) to maintain and preview the content for your website in Markdown files.
+### Apa saja yang menyebabkan terjadinya conflict?
+Karena kode yang kita tulis berbeda dengan yang lain.
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+Misalnya, Si A menulis kode untuk fitur X dengan algoritma yang ia ketahui. Sedangkan si B menulis dengan algoritma yang berbeda.
 
-### Markdown
+Lalu mereka melakukan commit, dan kode sumber jadi berantakan. Anggota tim yang lain menjadi pusing.
 
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
+![https://www.petanikode.com/git-branch/](https://2.bp.blogspot.com/-DEigCiYJJfY/WLMaWoeoONI/AAAAAAAAELQ/qvDUmoiDWQMElIHdl8y4qkT0ZsjDk6TzQCPcB/s1600/konflik-branch-repositori-git.png)
 
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+### Bagaimana menghindari conflict?
+-  Menggunakan Percabangan untuk Menghindari Konflik
+###
+Perintah untuk membuat cabang adalah git branch, kemudian diikuti dengan nama cabangnya.
 ```
+git branch fitur_register
+```
+Maka Git akan membuat cabang bernama fitur_register.
+![https://www.petanikode.com/git-branch/](https://4.bp.blogspot.com/-A8Ps8Hfz-Wg/WLMdwfZK7WI/AAAAAAAAELg/n2TAtUoTztIa_mk2ldClsO0Vy_5dJuJgQCPcB/s1600/percabganan-di-repositori-git.png)
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Sekarang setiap orang memiliki cabangnya masing-masing. Mereka bebas bereksperimen.
 
-### Jekyll Themes
+### Apa yang harus dilakukan apabila terjadi conflict?
+You can resolve simple merge conflicts that involve competing line changes on GitHub, using the conflict editor.
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/pygdwt23/conflict-repository/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+You can only resolve merge conflicts on GitHub that are caused by competing line changes, such as when people make different changes to the same line of the same file on different branches in your Git repository. For all other types of merge conflicts, you must resolve the conflict locally on the command line. For more information, see "Resolving a merge conflict using the command line."
 
-### Support or Contact
+1. Under your repository name, click  **Pull requests.**
+![](https://docs.github.com/assets/images/help/repository/repo-tabs-pull-requests.png)
+2. In the "Pull Requests" list, click the pull request with a merge conflict that you'd like to resolve.
+3. Near the bottom of your pull request, click **Resolve conflicts.**
+![](https://docs.github.com/assets/images/help/pull_requests/resolve-merge-conflicts-button.png)
+4. Decide if you want to keep only your branch's changes, keep only the other branch's changes, or make a brand new change, which may incorporate changes from both branches. Delete the conflict markers <<<<<<<, =======, >>>>>>> and make the changes you want in the final merge.
+![](https://docs.github.com/assets/images/help/pull_requests/view-merge-conflict-with-markers.png)
+5. If you have more than one merge conflict in your file, scroll down to the next set of conflict markers and repeat steps four and five to resolve your merge conflict.
+6. Once you've resolved all the conflicts in the file, click **Mark as resolved.**
+![](https://docs.github.com/assets/images/help/pull_requests/mark-as-resolved-button.png)
+7. If you have more than one file with a conflict, select the next file you want to edit on the left side of the page under "conflicting files" and repeat steps four through seven until you've resolved all of your pull request's merge conflicts.
+![](https://docs.github.com/assets/images/help/pull_requests/resolve-merge-conflict-select-conflicting-file.png)
+8. Once you've resolved all your merge conflicts, click **Commit merge**. This merges the entire base branch into your head branch.
+![](https://docs.github.com/assets/images/help/pull_requests/merge-conflict-commit-changes.png)
+9. If prompted, review the branch that you are committing to.
 
-Having trouble with Pages? Check out our [documentation](https://docs.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+If the head branch is the default branch of the repository, you can choose either to update this branch with the changes you made to resolve the conflict, or to create a new branch and use this as the head branch of the pull request.
+![](https://docs.github.com/assets/images/help/pull_requests/conflict-resolution-merge-dialog-box.png)
+If you choose to create a new branch, enter a name for the branch.
+
+If the head branch of your pull request is protected you must create a new branch. You won't get the option to update the protected branch.
+
+Click **Create branch and update my pull request** or **I understand, continue updating** _BRANCH_. The button text corresponds to the action you are performing.
+10. To merge your pull request, click **Merge pull request**. For more information about other pull request merge options, see "Merging a pull request."
